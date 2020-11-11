@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Challenge Twig{% endblock %}
+
+{% block body %}
+    {# If message variable is not empty show it #}
+    {% if message %}
+        <p>Message: {{ message }}</p>
+    {% endif %}
+
+    {# path finds the route of the controller using the name in his annotation #}
+    {# annotation is the special comment above the controllers using the @Route syntax #}
+    <form action="{{ path('index') }}" method="post">
+        <input type="text" name="message" placeholder="message">
+        <select name="classNames" id="classNames">
+            <option value="Capitalize">Capitalize</option>
+            <option value="SpacesDashes">SpacesDashes</option>
+        </select>
+        <button type="submit">Log message</button>
+    </form>
+{% endblock %}
